@@ -9,22 +9,16 @@ on:
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
-permissions:
-  actions: read
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: github-pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -54,8 +48,8 @@ jobs:
           if "data-mobile-tab" not in html or "pieceSvg(code)" not in html:
               raise SystemExit("Responsive navigation or custom SVG piece renderer is missing.")
 
-          scripts = re.findall(r'<script\b([^>]*)>([\s\S]*?)</script\s*>', html, re.I)
-          inline_scripts = [(attrs, body) for attrs, body in scripts if not re.search(r'\bsrc\s*=', attrs, re.I)]
+          scripts = re.findall(r'<script\\b([^>]*)>([\\s\\S]*?)</script\\s*>', html, re.I)
+          inline_scripts = [(attrs, body) for attrs, body in scripts if not re.search(r'\\bsrc\\s*=', attrs, re.I)]
           if not inline_scripts:
               raise SystemExit("No inline application scripts found.")
           for index, (_, script) in enumerate(inline_scripts):
@@ -81,6 +75,17 @@ jobs:
           path: _site
           retention-days: 1
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
