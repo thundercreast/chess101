@@ -48,8 +48,8 @@ jobs:
           if "data-mobile-tab" not in html or "pieceSvg(code)" not in html:
               raise SystemExit("Responsive navigation or custom SVG piece renderer is missing.")
 
-          scripts = re.findall(r'<script\\b([^>]*)>([\\s\\S]*?)</script\\s*>', html, re.I)
-          inline_scripts = [(attrs, body) for attrs, body in scripts if not re.search(r'\\bsrc\\s*=', attrs, re.I)]
+          scripts = re.findall(r'<script([^>]*)>(.*?)</script>', html, re.I | re.S)
+          inline_scripts = [(attrs, body) for attrs, body in scripts if "src=" not in attrs.lower()]
           if not inline_scripts:
               raise SystemExit("No inline application scripts found.")
           for index, (_, script) in enumerate(inline_scripts):
