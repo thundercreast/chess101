@@ -20,6 +20,8 @@ Saved games and the local practice rating are stored in the browser on the curre
 
 ## Deployment
 
-The Deploy Nightshift Chess to GitHub Pages workflow validates the required V4 interface elements and inline JavaScript, then publishes the root index.html with GitHub Pages whenever the app or workflow changes on main.
+The Deploy Nightshift Chess to GitHub Pages workflow validates the required V4 interface elements and inline JavaScript, then publishes the root index.html with GitHub Pages whenever the app changes on main.
+
+**One-time setup for a new repository:** open Settings → Pages → Build and deployment, set Source to **GitHub Actions**, and save. Then run the Deploy Nightshift Chess to GitHub Pages workflow from the Actions tab (or re-run the latest deployment). This first-time Pages activation is a repository setting and is not created by the workflow token.
 
 Live site: https://thundercreast.github.io/chess101/
