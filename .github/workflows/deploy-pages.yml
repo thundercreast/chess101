@@ -76,7 +76,9 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
+          name: github-pages
           path: _site
+          retention-days: 1
 
       - name: Deploy to GitHub Pages
         id: deployment
