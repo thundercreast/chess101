@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chess Academy · Personal Chess Tutor V4</title>
+<title>Nightshift Chess · Personal Chess Tutor</title>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--bg:#090d11;--surface:#111820;--surface2:#18222b;--line:#2a3740;--text:#edf3ed;--muted:#a4b0b4;--accent:#d5f06a;--cream:#e8e6d9;--sage:#66747a;--red:#f0b1a7;--gold:#d5f06a;--shadow:0 12px 28px #0005;--mono:"IBM Plex Mono",ui-monospace,monospace;--body:"Space Grotesk",Inter,system-ui,sans-serif;--piece-detail:#87939a}
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--bg);color:var(--text)}body{font:14px/1.45 var(--body);overflow:hidden}button,select,input{font:inherit}button{touch-action:manipulation}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--bg);color:var(--text)}body{font:14px/1.45 var(--body);overflow:hidden}.gameOnly{display:none}body[data-mode="game"] .tutorOnly{display:none!important}body[data-mode="game"] .gameOnly{display:block}button,select,input{font:inherit}button{touch-action:manipulation}
 .app-shell{width:100%;height:100dvh;min-height:680px;max-width:1900px;margin:0 auto;padding:10px 14px 12px;display:grid;grid-template-rows:48px 48px minmax(0,1fr);gap:8px;background:radial-gradient(ellipse at 10% 0%,#17231c 0,transparent 38%),var(--bg)}
 .app-header{display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding:0 2px 8px;min-width:0}
 .brand{display:flex;align-items:center;gap:10px;min-width:210px}.mark{width:34px;height:34px;border-radius:3px;background:var(--accent);color:#11180f;display:grid;place-items:center}.mark svg{width:23px;height:23px;fill:currentColor}.brand .eyebrow{font:700 9px var(--mono);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}.brand h1{font-size:17px;line-height:1.1;margin:2px 0 0;letter-spacing:-.04em}
@@ -76,7 +76,7 @@ main.workspace{display:grid;grid-template-columns:minmax(440px,.86fr) minmax(590
  .scan-columns{grid-template-columns:1fr;gap:7px}.scan-side{padding:9px}.scan-side h3{font-size:11px}.scan-group b{font-size:8px}.scan-group p{font-size:10px}
  .rating-big strong{font-size:35px}.rating-delta{font-size:10px}
  .viewport-bottom{display:none}
- body[data-mobile-tab="board"] .viewport-bottom{display:grid;grid-template-columns:1fr;margin-top:7px}
+ body[data-mobile-tab="board"] .viewport-bottom{display:grid;grid-template-columns:1fr;margin-top:7px}body[data-mobile-tab="board"] .archive-panel{display:none}
  body[data-mobile-tab="library"] .viewport-bottom{display:grid;grid-template-columns:1fr;gap:7px}
  body[data-mobile-tab="library"] .history-panel,body[data-mobile-tab="library"] .archive-panel{display:block}
  body[data-mobile-tab="library"] .history-panel{min-height:90px}body[data-mobile-tab="library"] .archive-panel{min-height:230px}
