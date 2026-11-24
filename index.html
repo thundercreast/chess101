@@ -1416,7 +1416,7 @@ window.__chessTutorV3={game,scanSide,attackersTo,get phase(){return phase},get e
   tabs.forEach(tab=>tab.classList.toggle('active',tab===button));
   const viewport=document.querySelector('.viewport');if(viewport)viewport.scrollTop=0;
  }));
- window.addEventListener('resize',()=>{if(!window.matchMedia('(max-width:680px)').matches)document.body.dataset.mobileTab='board'});
+ window.addEventListener('resize',()=>{if(!window.matchMedia('(max-width:900px), (max-height:620px) and (orientation:landscape)').matches)document.body.dataset.mobileTab='board'});
 })();
 </script></body>
 </html>
