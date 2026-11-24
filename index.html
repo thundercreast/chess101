@@ -277,6 +277,7 @@ main.workspace{grid-template-columns:minmax(380px,.84fr) minmax(0,1.16fr);gap:10
  body[data-mobile-tab="game"] .rating-big{padding:8px}
  /* Library tab: both panels share the height without becoming scroll containers */
  body[data-mobile-tab="library"] .viewport-bottom{display:grid!important;height:100%;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);grid-template-rows:minmax(0,1fr);gap:7px;overflow:hidden}
+ body[data-mobile-tab="library"] main.workspace{display:none}
  body[data-mobile-tab="library"] .history-panel,
  body[data-mobile-tab="library"] .archive-panel{display:block!important;min-width:0;min-height:0;padding:8px;overflow:hidden!important}
  body[data-mobile-tab="library"] .history-panel .movehistory{max-height:50px!important;overflow:hidden!important}
