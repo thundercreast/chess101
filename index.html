@@ -54,7 +54,7 @@ main.workspace{display:grid;grid-template-columns:minmax(440px,.86fr) minmax(590
  .scan-side{padding:6px}.scan-group{margin:4px 0}.scan-group p{font-size:8px}.scan-group b{font-size:7px}
  .viewport-bottom{grid-template-columns:.65fr 1.35fr;gap:7px}.history-panel,.archive-panel{padding:7px 8px}.archive-panel .muted{font-size:8px}
 }
-@media(max-width:680px){
+@media(max-width:900px){
  html,body{height:100%;overflow:hidden}
  .app-shell{width:100%;height:100dvh;min-height:0;max-height:none;padding:7px 8px 0;grid-template-rows:43px 43px minmax(0,1fr) 58px;gap:5px}
  .app-header{padding-bottom:5px}.brand{min-width:0;gap:7px}.mark{width:29px;height:29px}.mark svg{width:20px;height:20px}
@@ -91,6 +91,109 @@ main.workspace{display:grid;grid-template-columns:minmax(440px,.86fr) minmax(590
 }
 @media(max-width:370px){.brand h1{font-size:12px}.modebtn small{display:none}.control-row .btn,.control-row select{font-size:8px}.section-title span{font-size:7px}}
 @media(orientation:landscape) and (max-height:540px) and (min-width:681px){.app-shell{min-height:0}.viewport{grid-template-rows:minmax(0,1fr) 106px}.board{width:min(100%,calc(100vh - 330px))}}
+
+
+/* Accessibility pass: larger type and a fixed, non-scrolling application canvas */
+html,body{width:100%;height:100%;overflow:hidden!important;overscroll-behavior:none}
+*,*::before,*::after{scrollbar-width:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+.app-shell{height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;grid-template-rows:52px 54px minmax(0,1fr);gap:8px}
+.brand .eyebrow{font-size:10px}.brand h1{font-size:20px}
+.top-nav{font-size:10px}.engine-pill{font-size:10px}.profile{font-size:12px}.profile small{font-size:10px}
+.modebtn b{font-size:13px}.modebtn small{font-size:11px}.mode-note{font-size:12px}
+.viewport{grid-template-rows:minmax(0,1fr) clamp(118px,14dvh,145px);overflow:hidden}
+main.workspace{grid-template-columns:minmax(380px,.84fr) minmax(0,1.16fr);gap:10px;min-width:0;min-height:0;overflow:hidden}
+.board-card{grid-template-rows:28px minmax(0,1fr) auto 34px;gap:8px}
+.boardtop{font-size:14px}.boardtop #turnLabel{font-size:14px}.engine-badge{font-size:11px}.coord{font-size:10px}
+.btn,select{font-size:13px;min-height:34px;padding:8px 11px}
+.btn.small{font-size:12px;min-height:30px;padding:7px 10px}
+.status{font-size:13px;min-height:34px}
+.right{grid-template-rows:minmax(0,1fr) minmax(0,1fr) auto auto;gap:9px;overflow:hidden}
+.right>.card{overflow:hidden!important;padding:12px 14px;min-height:0}
+.section-title{font-size:13px;margin-bottom:9px}.section-title span{font-size:9px}
+.panel h2{font-size:19px}.panel h3{font-size:15px}.panel p{font-size:13px;line-height:1.42}
+.muted{font-size:12px;line-height:1.4}
+.tag{font-size:9px;padding:5px 7px}
+.analysis-section{padding:10px}.analysis-section h3{font-size:13px}.analysis-section p{font-size:12px}
+.candidate{padding:8px 10px;gap:9px}.candidate b{font-size:13px}.candidate small{font-size:12px}.candidate em{font-size:11px}.candidate .rank{font-size:10px}
+.question button{font-size:12px;padding:8px 10px}
+.scan-side{padding:9px}.scan-side h3{font-size:13px}.scan-side h3 span{font-size:9px}
+.scan-group b{font-size:9px}.scan-group p{font-size:11px;line-height:1.35}
+.rating-delta{font-size:12px}.analysis-table{font-size:12px}
+.viewport-bottom{min-height:0;overflow:hidden}
+.history-panel,.archive-panel{overflow:hidden!important;padding:9px 11px}
+.history-panel .section-title,.archive-panel .section-title{font-size:12px}
+.movehistory{max-height:46px!important;overflow:hidden!important}
+.move{font-size:11px;padding:4px 6px}
+.archive-panel .muted{font-size:10px}.archive-row select{font-size:12px}
+.right>.card,[style*="overflow:auto"],[style*="overflow:scroll"],.movehistory{overscroll-behavior:none}
+#postGameAnalysis [style*="overflow:auto"]{overflow:hidden!important}
+
+@media(min-width:901px){
+ .viewport{grid-template-rows:minmax(0,1fr) clamp(118px,14dvh,145px)}
+ .right>#userMovePanel{grid-column:1;grid-row:1}
+ .right>#computerThinkingPanel{grid-column:2;grid-row:1}
+ .right>#positionScanPanel{grid-column:1/-1;grid-row:2}
+ .right>#gameModePanel{grid-column:1/-1;grid-row:3}
+ .right>#postGameAnalysis{grid-column:1/-1;grid-row:4}
+}
+@media(max-width:900px){
+ .app-shell{height:100dvh;min-height:0;max-height:100dvh;padding:7px 8px 0;grid-template-rows:46px 48px minmax(0,1fr) 58px;gap:5px}
+ .app-header{padding-bottom:5px}.brand{min-width:0;gap:7px}.mark{width:30px;height:30px}.mark svg{width:21px;height:21px}
+ .brand .eyebrow{font-size:8px}.brand h1{font-size:16px}
+ .top-nav,.profile{display:none}.engine-pill{font-size:9px;padding:5px 7px}.avatar{width:26px;height:26px}
+ .modebar{gap:5px}.modebtn{flex:1;padding:7px 8px;text-align:center}.modebtn b{font-size:12px}.modebtn small{font-size:10px}.mode-note{display:none}
+ .viewport{display:grid;grid-template-rows:minmax(0,1fr) 92px;gap:5px;min-height:0;padding:0;overflow:hidden}
+ main.workspace{display:block;width:100%;height:100%;min-height:0;overflow:hidden}
+ .board-column{display:none;height:100%;min-height:0}
+ .right{display:block;height:100%;min-height:0;overflow:hidden}
+ .right>.card{display:none;overflow:hidden!important;padding:10px;margin:0;min-height:0}
+ .right>#userMovePanel,.right>#computerThinkingPanel,.right>#positionScanPanel,.right>#gameModePanel,.right>#postGameAnalysis{grid-column:1!important;grid-row:auto!important}
+ body[data-mobile-tab="board"] .board-column{display:block}
+ body[data-mobile-tab="board"] .right{display:none}
+ body[data-mobile-tab="coach"] #userMovePanel,body[data-mobile-tab="coach"] #computerThinkingPanel{display:block}
+ body[data-mobile-tab="scan"] #positionScanPanel{display:block}
+ body[data-mobile-tab="game"] #gameModePanel{display:block!important}
+ body[data-mobile-tab="coach"] #postGameAnalysis[style*="block"]{display:block!important}
+ .right:has(#userMovePanel[style*="display: block"]){display:block}
+ .board-card{height:100%;min-height:0;grid-template-rows:21px minmax(0,1fr) auto 32px;gap:5px;padding:7px}
+ .boardwrap{width:min(100%,calc(100dvh - 420px));height:auto;max-width:100%;aspect-ratio:1;min-height:0;margin:auto}
+ .board{width:100%;height:100%;max-width:none;max-height:none;aspect-ratio:1;border-width:4px}
+ .coord{font-size:9px;left:3px;top:2px}.boardtop #turnLabel{font-size:13px}.engine-badge{font-size:9px}
+ .controls{gap:5px}.control-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+ .control-row .btn,.control-row select{min-width:0;width:100%;height:34px;padding:4px 5px;font-size:11px;justify-content:center}
+ .control-row:nth-child(2){grid-template-columns:1fr 1.4fr 1fr}.control-row #opponentRating{grid-column:1/-1}
+ .status{font-size:12px;padding:7px 8px;min-height:32px;line-height:1.25}
+ .right>.card .section-title{font-size:12px}.right>.card .section-title span{font-size:9px}
+ .panel h2{font-size:18px}.panel p{font-size:12px;line-height:1.35}.muted{font-size:11px}
+ .candidate{grid-template-columns:24px 1fr auto;padding:7px;gap:6px}.candidate b{font-size:12px}.candidate small{font-size:11px}.question button{font-size:11px;padding:7px}
+ .scan-columns{grid-template-columns:1fr 1fr;gap:6px}.scan-side{padding:7px}.scan-side h3{font-size:11px}.scan-group{margin:5px 0}.scan-group b{font-size:8px}.scan-group p{font-size:10px;line-height:1.3}
+ .rating-big{padding:8px}.rating-big strong{font-size:30px}.rating-delta{font-size:10px}
+ .viewport-bottom{display:none;min-height:0;overflow:hidden}
+ body[data-mobile-tab="board"] .viewport{grid-template-rows:minmax(0,1fr) 92px}
+ body[data-mobile-tab="board"] .viewport-bottom{display:grid;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr);margin:0;height:100%;min-height:0}
+ body[data-mobile-tab="board"] .archive-panel{display:none}
+ body[data-mobile-tab="library"] .viewport{grid-template-rows:minmax(0,1fr)}
+ body[data-mobile-tab="library"] .viewport-bottom{display:grid;grid-template-columns:1fr;grid-template-rows:minmax(70px,.32fr) minmax(0,1fr);gap:5px;height:100%;min-height:0}
+ body[data-mobile-tab="library"] .history-panel,body[data-mobile-tab="library"] .archive-panel{display:block;min-height:0}
+ body[data-mobile-tab="library"] .archive-row{flex-wrap:nowrap;gap:4px}
+ body[data-mobile-tab="library"] .archive-row select{width:auto;min-width:0;flex:1;font-size:11px}
+ body[data-mobile-tab="library"] .archive-row .btn{font-size:10px;padding:5px 6px}
+ body[data-mobile-tab="library"] .replay-controls .muted{width:auto;margin:0 0 0 auto}
+ .history-panel,.archive-panel{padding:7px 8px}.history-panel .movehistory{max-height:34px!important}
+ .archive-panel .section-title{font-size:11px}.archive-panel .muted{font-size:9px;line-height:1.25}.archive-row select{font-size:11px}
+ .mobile-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;border-top:1px solid var(--line);background:#0d141a;padding:5px 0 6px;min-height:0}
+ .mobile-tabs button{font-size:9px;padding:2px}.mobile-tabs button svg{width:19px;height:19px}
+ body[data-mobile-tab="coach"] .viewport,body[data-mobile-tab="scan"] .viewport,body[data-mobile-tab="game"] .viewport{grid-template-rows:minmax(0,1fr)}
+ body[data-mobile-tab="coach"] .right{display:grid;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:5px}
+ body[data-mobile-tab="scan"] .right,body[data-mobile-tab="game"] .right{display:block}
+}
+@media(max-width:370px){
+ .brand h1{font-size:14px}.modebtn b{font-size:11px}.modebtn small{font-size:9px}
+ .control-row .btn,.control-row select{font-size:10px}
+ .section-title span{font-size:8px}
+ .boardwrap{width:min(100%,calc(100dvh - 405px))}
+}
 
 </style>
 </head>
