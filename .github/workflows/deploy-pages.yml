@@ -45,8 +45,8 @@ jobs:
           missing = [key for key in required if f'id="{key}"' not in html]
           if missing:
               raise SystemExit("Missing required V4 elements: " + ", ".join(missing))
-          if "data-mobile-tab" not in html or "pieceSvg(code)" not in html:
-              raise SystemExit("Responsive navigation or custom SVG piece renderer is missing.")
+          if "data-tab" not in html or "pieceSvg(code)" not in html:
+              raise SystemExit("Section navigation or custom SVG piece renderer is missing.")
 
           scripts = re.findall(r'<script([^>]*)>(.*?)</script>', html, re.I | re.S)
           inline_scripts = [(attrs, body) for attrs, body in scripts if "src=" not in attrs.lower()]
